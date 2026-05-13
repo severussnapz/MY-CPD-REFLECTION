@@ -2,7 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #8b5cf6;
+  --accent: #ec4899;
+  --bg-light: #f8fafc;
+  --bg-light-secondary: #f1f5f9;
+  --text-light: #1e293b;
+  --text-light-secondary: #64748b;
+  --border-light: #e2e8f0;
+}
+
+[data-theme='dark'] {
+  --primary: #6366f1;
+  --primary-dark: #818cf8;
+  --secondary: #a78bfa;
+  --accent: #f472b6;
+  --bg-light: #0f172a;
+  --bg-light-secondary: #1e293b;
+  --text-light: #f1f5f9;
+  --text-light-secondary: #cbd5e1;
+  --border-light: #334155;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: linear-gradient(to bottom right, #4f46e5, #312e81);
-  min-height: 100vh;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+}
+
+[data-theme='dark'] .gradient-bg {
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #db2777 100%);
+}
+
+.card {
+  background-color: var(--bg-light-secondary);
+  border-color: var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }

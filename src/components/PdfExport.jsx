@@ -19,7 +19,11 @@ export default function PdfExport({ reflection, insights }) {
       // Date
       doc.setFontSize(10)
       doc.setFont(undefined, 'normal')
-      const date = new Date().toLocaleDateString()
+      const date = new Date().toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
       doc.text(`Generated: ${date}`, margin, yPosition)
       yPosition += 10
 
@@ -63,7 +67,7 @@ export default function PdfExport({ reflection, insights }) {
   return (
     <button
       onClick={handlePdfExport}
-      className="flex-1 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+      className="w-full px-6 py-3 bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 text-white rounded-lg transition-colors font-semibold"
     >
       📄 Export to PDF
     </button>
