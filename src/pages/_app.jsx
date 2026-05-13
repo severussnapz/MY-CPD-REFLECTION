@@ -19,8 +19,6 @@ export default function App({ Component, pageProps }) {
     document.documentElement.setAttribute('data-theme', newTheme)
   }
 
-  if (!mounted) return null
-
   return (
     <>
       <div className="fixed top-4 right-4 z-50">
